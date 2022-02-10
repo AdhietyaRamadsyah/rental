@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Nexmo\Laravel\Facade\Nexmo;
 
 class PengembalianController extends Controller
 {
@@ -11,3 +12,4 @@ class PengembalianController extends Controller
         return view('pengembalian.index');
     }
 }
+    

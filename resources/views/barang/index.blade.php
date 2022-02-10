@@ -26,7 +26,7 @@
                             <tr>
                                 <td>{{$item->kode_barang}}</td>
                                 <td>
-                                    <a href="{{route('transaksi.create')}}"
+                                    <a href="{{route('transaksi.create', $item->id)}}"
                                         class="btn btn-outline-info btn-sm">
                                         {{$item->name_item}}
                                     </a>

@@ -26,24 +26,40 @@
                     </tr>
                 </thead>
                 <tbody>
+                @foreach ($transactions as $transaction)
                     <tr>
-                        <td>12334</td>
-                        <td>JNT21342</td>
-                        <td>SEPATU</td>
-                        <td>Adhietya</td>
-                        <td>30-10-2012</td>
-                        <td>30-11-2012</td>
-                        <td>1 Bulan</td>                            
+                        <td>{{$transaction->no_faktur}}</td>
+                        <td>{{$transaction->item->kode_barang}}</td>
+                        <td>{{$transaction->item->name_item}}</td>
+                        <td>{{$transaction->name_peminjam}}</td>
+                        <td>{{$transaction->tgl_pinjam}}</td>
+                        <td>{{$transaction->tgl_kembali}}</td>
+                        <td>
+                            <?php
+                                $datetime2 = strtotime($transaction->tgl_kembali) ;
+                                $datenow = strtotime($transaction->tgl_pinjam);
+                                $durasi = ($datenow - $datetime2) / 86400 ;
+                                $durasi2 = ($durasi);
+                            ?>
+                            @if ($datenow == $datetime2  ) 
+                                <span class="text-danger">Waktunya mengembalikan</span> 
+                                @elseif($datenow > $datetime2)
+                                    Sudah lewat {{$durasi}} Hari
+                                @else
+                                <?php $durasi1 = abs($durasi) ?> {{ $durasi1 }} Hari
+                                @endif
+                            </td>                            
                         <td>
                             <form action="" method="post">
                                 @csrf
                                 @method('PATCH')
-                                <button class="btn btn-info btn-sm">Reminder</button>
+                                <a href="{{route('sms')}}" class="btn btn-outline-info btn-sm">Reminder</a>
                                 <button class="btn btn-info btn-sm">Buat Pengembalian</button>
                             </form>
                         </td>
                     </tr>
                 </tbody>
+                @endforeach
             </table>
         </div>
     </div>

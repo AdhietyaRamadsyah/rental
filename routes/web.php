@@ -31,6 +31,7 @@ Route::group(['prefix' => 'barang'], function(){
 
 Route::group(['prefix' => 'transaksi'], function(){
     Route::get('/transaksi', 'TransaksiController@index')->name('transaksi.index');
+    route::post('/store/{transactions}','TransaksiController@store')->name('manage-transaksi.store');
 });
 
 Route::group(['prefix' => 'pengembalian'], function(){
@@ -39,14 +40,21 @@ Route::group(['prefix' => 'pengembalian'], function(){
 
 Route::group(['prefix' => 'tambah-data'], function() {
     route::get('barang','BarangController@create')->name('barang.create');
-    route::get('/transaksi','TransaksiController@create')->name('transaksi.create');
+    route::get('/transaksi/{transactions}','TransaksiController@create')->name('transaksi.create');
 });
 
 Route::group(['prefix' => 'updated'], function(){
     route::patch('/barang/{id}', 'BarangController@update')->name('updated.data.barang');
 });
 
+Route::group(['prefix' => 'sms'], function(){
+Route::get('create', 'SmsController@create')->name('sms.create');
+Route::post('sms', 'SmsController@store')->name('sms');
+
+});
+
 Route::group(['prefix' => 'destroy'], function(){
     route::delete('barang/{user}', 'BarangController@destroy')->name('destroy.data.barang');
     
 });
+

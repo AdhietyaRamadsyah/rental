@@ -11,38 +11,46 @@
                         Silahkan Input Transaksi dibawah ini dengan benar.
                     </div>
 
-                     <form action="" method="post" enctype="multipart/form-data">
+                     <form action="{{route('manage-transaksi.store', $transactions->id)}}" method="post">
                          @csrf
 
                          <div class="row">
                              <div class="col-md-4">
                                  <div class="form-group">
                                      <label for="">Kode Barang</label>
-                                     <input type="text" name="" class="form-control" id="" disabled >
+                                     <input class="form-control" value="{{$transactions->kode_barang}}" disabled>
+                                     <input type="hidden" name="kodebarang_id" class="form-control" value="{{$transactions->id}}">
                                  </div>
                              </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Nama Barang</label>
-                                        <input type="text" name="" class="form-control" id="" disabled >
+                                        <input class="form-control" value="{{$transactions->name_item}}" disabled>
+                                        <input type="hidden" name="nameitem_id" class="form-control" value="{{$transactions->id}}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Nama Peminjam</label>
-                                        <input type="text" name="qty" class="form-control" id="" >
+                                        <input type="text" name="name_peminjam" class="form-control" id="" >
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Jumlah Dipinjam</label>
-                                        <input type="text" name="idr" class="form-control" id="" >
+                                        <input type="text" name="jumlah_pinjaman" class="form-control" id="" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">Tanggal Pinjam</label>
+                                        <input type="date" name="tgl_pinjam" class="form-control" id="" >
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Tanggal Kembali</label>
-                                        <input type="text" name="idr" class="form-control" id="" >
+                                        <input type="date" name="tgl_kembali" class="form-control" id="" >
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -54,13 +62,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Email</label>
-                                        <input type="text" name="idr" class="form-control" id="" >
+                                        <input type="text" name="email" class="form-control" id="" >
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Telp</label>
-                                        <input type="text" name="idr" class="form-control" id="" >
+                                        <input type="text" name="phone" class="form-control" id="" >
                                     </div>
                                 </div>
                                 <div class="col-md-12">

@@ -24,8 +24,8 @@
     @include('layouts.nav')
     <div class="jumbotron">
                 <div class="container">
-                    <p class="text-white">Halo username</p>
-                    <h3 class="text-white">Selamat datang kembali dan bergabung</h3>
+                    <p class="text-dark">Halo username</p>
+                    <h3 class="text-dark">Selamat datang kembali dan bergabung</h3>
                 </div>
             </div>
         </div>
