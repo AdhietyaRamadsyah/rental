@@ -19,7 +19,7 @@ class CreateItemsTable extends Migration
             $table->string('name_item');
             $table->string('image');
             $table->string('jumlah_barang');
-            $table->string('harga_satuan');
+            $table->string('idr');
             $table->timestamps();
         });
     }

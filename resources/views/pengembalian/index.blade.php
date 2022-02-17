@@ -16,25 +16,40 @@
                 <thead>
                     <tr>
                         <th>No. Pengembalian</th>
-                        <th>No. Faktur</th>
+                        <th>No Faktur</th>
                         <th>Kode Barang</th>
                         <th>Nama Penyewa</th>
                         <th>Tanggal Pinjam</th>
                         <th>Tanggal Kembali</th>
-                        <th>Lama Penyewaan</th>
+                        <th>Durasi</th>
                     </tr>
                 </thead>
                 <tbody>
+                @foreach ($returns as $return)
                     <tr>
-                        <td>234</td>
-                        <td>12334</td>
-                        <td>JNT21342</td>
-                        <td>Adhietya</td>
-                        <td>30-10-2012</td>
-                        <td>30-11-2012</td>
-                        <td>1 Bulan</td>                            
-                    </tr>
-                </tbody>
+                        <td>{{$return->no_refund}}</td>
+                        <td>{{$return->transaksi->no_faktur}}</td>
+                        <td>{{$return->item->kode_barang}}</td>
+                        <td>{{$return->transaksi->name_peminjam}}</td>
+                        <td>{{$return->transaksi->tgl_pinjam}}</td>
+                        <td>{{$return->transaksi->tgl_kembali}}</td>   
+                        <td>
+                            <?php
+                                $datetime2 = strtotime($return->transaksi->tgl_pinjam) ;
+                                $datenow = strtotime($return->transaksi->tgl_kembali);
+                                $durasi = ($datenow - $datetime2) / 86400 ;
+                                $durasi2 = ($durasi);
+                            ?>
+                            @if ($datenow == $datetime2  ) 
+                                <span class="text-danger">Waktunya mengembalikan</span> 
+                                @elseif($datenow > $datetime2)
+                                    Sudah lewat {{$durasi}} Hari
+                                @else
+                                <?php $durasi1 = abs($durasi) ?> {{ $durasi1 }} Hari
+                                @endif
+                            </td>             
+                    </tbody>
+                @endforeach
             </table>
         </div>
     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Nexmo\Laravel\Facade\Nexmo;
 use Illuminate\Http\Request;
 use App\Transaction;
 
@@ -15,20 +16,21 @@ class SmsController extends Controller
     public function store(Request $request, $id)
     {
         
-        $transactions = Transaction::findOrFail($id);
+        $transaction = Transaction::findOrFail($id);
 
         Nexmo::message()->send([
-            'to' => '+62' . $request->phone,
-            'from' => 'RENTAL',
+            'to' => $transaction->phone,
+            'from' => 'Rental kaca',
             'text' => 'Halo Username, kami dari rentalku ingin memberitahukan bahwa pinjaman
-             anda sudah dikembalikan berikut rinciannya',
-             'Nama Peminjam' . $request->name_peminjam,
-             'Tanggal Pinjam' . $request->tgl_pinjam,
-             'Tanggal Kembali' . $request->tgl_kembali,
-             'Jumlah Barang' . $request->jumlah_barang,
-             'Harga' . $request->idr,
+             anda sudah dikembalikan berikut rinciannya'
+             . 'Nama Peminjam ' . $transaction->name_peminjam
+             . 'Tanggal Pinjam ' . $transaction->tgl_pinjam
+             . 'Tanggal Kembali' . $transaction->tgl_kembali
+             . 'Jumlah Barang' . $transaction->jumlah_pinjaman
+             . 'Harga' . $transaction->idr
         ]);
-            return redicret()->back();
+        
+        return redirect()->back();
         
     }
 }

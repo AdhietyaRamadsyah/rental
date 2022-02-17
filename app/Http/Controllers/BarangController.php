@@ -40,7 +40,7 @@ class BarangController extends Controller
         return tap(request()->validate([
             'name_item' => 'required',
             'jumlah_barang' => 'required',
-            'harga_satuan' => 'required',
+            'idr' => 'required',
             'image'  => 'required|mimes:jpeg,jpg,png|max:5000',
         ]), function(){
             if(request()->hasFile('image')){

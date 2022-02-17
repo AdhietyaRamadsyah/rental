@@ -36,6 +36,8 @@ Route::group(['prefix' => 'transaksi'], function(){
 
 Route::group(['prefix' => 'pengembalian'], function(){
     Route::get('/pengembalian', 'PengembalianController@index')->name('pengembalian.index');
+    route::post('store/{transaction}','PengembalianController@store')->name('pengembalian.store');
+    route::get('create/{id}', 'PengembalianController@create')->name('pengembalian.create');
 });
 
 Route::group(['prefix' => 'tambah-data'], function() {
@@ -48,8 +50,7 @@ Route::group(['prefix' => 'updated'], function(){
 });
 
 Route::group(['prefix' => 'sms'], function(){
-Route::get('create', 'SmsController@create')->name('sms.create');
-Route::post('sms', 'SmsController@store')->name('sms');
+    Route::post('post/{transaction}', 'SmsController@store')->name('sms');
 
 });
 

@@ -32,7 +32,7 @@
                                     </a>
                                     </td>
                                 <td>{{$item->jumlah_barang}}</td>
-                                <td>{{$item->harga_satuan}}</td>
+                                <td>{{$item->idr}}</td>
                                 <td>
                                     <form action="{{route('destroy.data.barang', $item->id)}}" method="post">
                                         @csrf

@@ -17,7 +17,7 @@ class Item extends Model
         return [
             'kode_barang' => [
                 'format' => function() {
-                 return 'JNT-IDN/'.date('Ymd').'/?';
+                 return 'PH/'.date('Ymd').'/?';
                 },
              'length' => 5
              ]

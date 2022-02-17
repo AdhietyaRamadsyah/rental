@@ -50,11 +50,19 @@
                                 @endif
                             </td>                            
                         <td>
-                            <form action="" method="post">
+                        <form action="{{route('sms', $transaction->id)}}" method="post">
+                            @csrf
+                            <input type="hidden" name="phone" class="form-control" value="{{$transaction->phone}}">
+                                <button type="submit" class="btn btn-outline-primary btn-sm">Notifikasi</button>
+                            </form>
+                            <form action="{{route('pengembalian.store', $transaction->id)}}" method="post">
                                 @csrf
-                                @method('PATCH')
-                                <a href="{{route('sms')}}" class="btn btn-outline-info btn-sm">Reminder</a>
-                                <button class="btn btn-info btn-sm">Buat Pengembalian</button>
+                                <input type="hidden" name="kodebarang_id" class="form-control" value="{{$transaction->item->id}}">
+                                <input type="hidden" name="nofaktur_id" class="form-control" value="{{$transaction->id}}">
+                                <input type="hidden" name="namepeminjam_id" class="form-control" value="{{$transaction->id}}">
+                                <input type="hidden" name="tglpinjam_id" id="" class="form-control" value="{{$transaction->id}}">
+                                <input type="hidden" name="tglkembali_id" id="" class="form-control" value="{{$transaction->id}}">
+                                <button class="btn btn-outline-secondary btn-sm">Pengembalian</button>
                             </form>
                         </td>
                     </tr>

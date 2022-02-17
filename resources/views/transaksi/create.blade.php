@@ -10,7 +10,6 @@
                         <h3>Perhatian !!!</h3>
                         Silahkan Input Transaksi dibawah ini dengan benar.
                     </div>
-
                      <form action="{{route('manage-transaksi.store', $transactions->id)}}" method="post">
                          @csrf
 
@@ -38,7 +37,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Jumlah Dipinjam</label>
-                                        <input type="text" name="jumlah_pinjaman" class="form-control" id="" >
+                                        <input type="number" name="jumlah_pinjaman" class="form-control" id="" >
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -56,7 +55,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Harga</label>
-                                        <input type="text" name="idr" class="form-control" id="" >
+                                        <input type="text" name="idr" class="form-control" value="{{$transactions->idr}}" >
                                     </div>
                                 </div>
                                 <div class="col-md-4">

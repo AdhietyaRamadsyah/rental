@@ -30,18 +30,18 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Jumlah Barang</label>
-                                        <input type="text" name="jumlah_barang" class="form-control" id="" >
+                                        <input type="number" name="jumlah_barang" class="form-control" id="" >
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Harga Satuan</label>
-                                        <input type="text" name="harga_satuan" class="form-control" id="" >
+                                        <input type="text" name="idr" class="form-control" id="" >
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-info">Simpan</button>
-                                    <button type="submit" class="btn btn-info">Kembali</button>
+                                    <button type="submit" class="btn btn-outline-info">Simpan</button>
+                                    <a href="{{route('barang.index')}}" class="btn btn-outline-secondary btn-sm">Kembali</a>
                             </form>
                          </div>
                     </div>

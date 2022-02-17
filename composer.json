@@ -14,7 +14,8 @@
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
         "spatie/laravel-permission": "^2.37",
-        "nexmo/laravel": "^1.0"
+        "nexmo/laravel": "^1.0",
+        "barryvdh/laravel-dompdf": "^0.8.4"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
