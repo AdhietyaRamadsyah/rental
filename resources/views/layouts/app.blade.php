@@ -29,30 +29,37 @@
                 </div>
             </div>
         </div>
-                <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="margin-top: -30px">
-                <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a href="{{route('dashboard.index')}}" class="nav-link text-dark">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('barang.index')}}" class="nav-link text-dark">Daftar Barang</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('transaksi.index')}}" class="nav-link text-dark">Transaksi</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('pengembalian.index')}}" class="nav-link text-dark">Pengembalian</a>
-                </li>
-            </ul>
-        </div>
-        </nav>
+        <nav class="navbar navbar-expand-md navbar-light navbar-light mt-3 border-top ">
+                        <div class="container">
+                                <!-- Left Side Of Navbar -->
+                                <ul class="d-flex justify-content-center" style=" margin-top: 30px; text-transform: uppercase; ">
+                                    <li class="nav-link mr-5 hover">
+                                        <a href="{{route('dashboard.index')}}" class="nav-link text-dark">Dashboard</a>
+                                    </li>
+                                    <li class="nav-link mr-5 hover">
+                                        <a href="{{route('barang.index')}}" class="nav-link text-dark">Daftar Barang</a>
+                                    </li>
+                                    <li class="nav-link mr-5 hover">
+                                        <a href="{{route('transaksi.index')}}" class="nav-link text-dark">Transaksi</a>
+                                    </li>
+                                    <li class="nav-link mr-5 hover">
+                                        <a href="{{route('pengembalian.index')}}" class="nav-link text-dark">Pengembalian</a>
+                                    </li>
+                                    <li class="nav-link dropdown">
+                                        <a class="nav-link dropdown-toggle text-dark" role="button" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                                            Laporan
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown"  style="text-transform: none">
+                                            <a href="{{route('laporan.item')}}" class="dropdown-item">Daftar Barang</a>
+                                            <a href="{{route('laporan.transaksi')}}" class="dropdown-item"> Transaksi</a>
+                                            <a href="{{route('laporan.return')}}" class="dropdown-item">Pengembalian</a>
+                                            <a href="{{route('laporan.dashboard')}}" class="dropdown-item">Dashboard</a>
+                                        </div>
+                                    </li>
+                                </ul>  
+                        </div>
+                    </nav>
+                </div>
 
         <main class="py-4">
             @yield('content')

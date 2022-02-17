@@ -54,6 +54,14 @@ Route::group(['prefix' => 'sms'], function(){
 
 });
 
+Route::group(['prefix' => 'laporan'], function(){
+    route::get('tampilan','Laporan\LaporanController@cetak')->name('laporan.index');
+    route::get('item','Laporan\DaftarBarangController@rekap')->name('laporan.item');
+    route::get('transaksi','Laporan\TransaksiController@rekap')->name('laporan.transaksi');
+    route::get('return','Laporan\PengembalianController@rekap')->name('laporan.return');
+    route::get('dashboard','Laporan\DashboardController@rekap')->name('laporan.dashboard');
+});
+
 Route::group(['prefix' => 'destroy'], function(){
     route::delete('barang/{user}', 'BarangController@destroy')->name('destroy.data.barang');
     
